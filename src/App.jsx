@@ -6,7 +6,7 @@ import EmojiPicker from "emoji-picker-react";
 import { io } from "socket.io-client";
 
 // 🔌 CONNECT TO BACKEND
-const socket = io("http://localhost:5000");
+const socket = io("https://telechat-backend-rlp0.onrender.com");
 
 function App() {
   const [showName, setShowName] = useState(true);
@@ -181,22 +181,16 @@ function App() {
                 <div
                   key={index}
                   className={`flex ${
-                    msg.name === inputName
-                      ? "justify-end"
-                      : "justify-start"
+                    msg.name === inputName ? "justify-end" : "justify-start"
                   }`}
                 >
                   <div
                     className={`px-4 py-2 rounded-2xl max-w-[70%] text-sm ${
-                      msg.name === inputName
-                        ? "bg-green-600"
-                        : "bg-[#373E4E]"
+                      msg.name === inputName ? "bg-green-600" : "bg-[#373E4E]"
                     }`}
                   >
                     {msg.name !== inputName && (
-                      <p className="text-xs text-gray-300 mb-1">
-                        {msg.name}
-                      </p>
+                      <p className="text-xs text-gray-300 mb-1">{msg.name}</p>
                     )}
                     <p>{msg.text}</p>
                   </div>
